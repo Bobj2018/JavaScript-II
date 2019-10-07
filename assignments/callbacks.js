@@ -2,14 +2,13 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-function firstItem(arr, cb){
+function firstItem(arr , cb){
   return cb(arr[0])
 }
-  const test1 = firstItem(items, item => `I love my ${item}!`);
-  console.log(test1); // "I love my Pencil!"
-  
 
-
+//   const test1 = firstItem(items, item => `I love my ${item}!`);
+  // console.log(test1); 
+  // "I love my Pencil!"
 /* 
 
   // GIVEN THIS PROBLEM:
@@ -50,29 +49,59 @@ function firstItem(arr, cb){
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+
+const itemsLength = getLength(items, item => `I contain ${item} values`);
+console.log(itemsLength);
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(items.length - 1);
 }
+
+const itemsLast = last(items, item => `The last item in this array is ${item}`)
+console.log(itemsLast)
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y)
 }
+
+const itemsSumNums = sumNums(1, 2, sum => `The answer is ${sum}`);
+console.log(itemsSumNums);
 
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x + y)
 }
 
-function contains(item, list, cb) {
+const itemsMultipy = multiplyNums(5, 5,multi => `The answer is ${multi}`)
+console.log(itemsMultipy);
+
+function contains(item, arr, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  inArray = `${item} is not in the array`;
+  arr.forEach(element => {
+    if (element == item) {
+      itemInArray = `${item} is in the array`;;
+    }
+  });
+  return cb(itemInArray);
 }
 
+const itemsContain = contains("yo-yo", items, element => `${element}`)
+
+console.log(itemsContain);
+
+
+
+// function 
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  
 }
