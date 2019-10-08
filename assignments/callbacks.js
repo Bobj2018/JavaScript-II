@@ -47,6 +47,8 @@ function firstItem(arr , cb){
 */
 
 
+
+
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
   return cb(arr.length);
@@ -99,9 +101,24 @@ console.log(itemsContain);
 // function 
 /* STRETCH PROBLEM */
 
+const item2 = [1,1,2,4,6,1,6];
+
+
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-  
+  let newItem2 = [];
+  array.forEach(element => {
+   if(!newItem2.includes(element)) {
+     newItem2.push(element);
+   }
+  });
+
+  return cb(newItem2);
+
 }
+
+const item2Remove = removeDuplicates(item2, (array) => `The new array contains ${array}`);
+
+console.log(item2Remove);
+
+
+
